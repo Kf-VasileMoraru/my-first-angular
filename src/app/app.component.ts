@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-first-angular';
+  focused: any = null;
+
+  get name(): string {
+    return this.focused ? this.focused.tagName : 'null';
+  }
+
+  onFocusWithin(focused: Element | null) {
+    this.focused = focused;
+  }
 }
