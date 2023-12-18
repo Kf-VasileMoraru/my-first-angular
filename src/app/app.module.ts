@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
-import {FocusWithinModule} from './focus-within/focus-within.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,6 @@ import {FocusWithinModule} from './focus-within/focus-within.module';
   imports: [
     BrowserModule,
     FormsModule,
-    FocusWithinModule
   ],
   providers: [],
   bootstrap: [AppComponent]

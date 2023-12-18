@@ -1,44 +1,21 @@
 <blockquote>
-  Create a single Observable stream to watch for focus being present in the area
+  Write a page visibility stream and log in console when it emits.
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API"
+    target="_blank"
+  >MDN Page Visibility API</a
+  >
+  can help you ;)
+
+  <p>
+    <strong>Additional Angular task:</strong> make it as a global DI injection
+    token
+  </p>
 </blockquote>
 <p>
-  <label>
-    Just an input
-    <input placeholder="Focus can be here" />
-  </label>
-  <button>I'm a button</button>
+  Page is visible: {{pageVisibility$ | async}}
 </p>
-<div class="focus" focusWithin (focusWithin1)="onFocusWithin($event)">
-  <h2>
-    Currently focused: {{name}}
-  </h2>
-  <p>
-    <select>
-      <option>Option 1</option>
-      <option>Option 1</option>
-    </select>
-  </p>
 
-  <p>
-    <input type="date" />
-    <button>I'm a button</button>
-  </p>
-
-  <p>
-    <label>
-      <input type="radio" />
-      Option 1
-    </label>
-    <label>
-      <input type="radio" />
-      Option 2
-    </label>
-  </p>
-</div>
 <p>
-  <label>
-    Just an input
-    <input placeholder="Focus can be here" />
-  </label>
-  <button>I'm a button</button>
+  Page is visible: {{pageVisibility$ | async}}
 </p>
