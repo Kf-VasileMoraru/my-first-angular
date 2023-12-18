@@ -1,7 +1,7 @@
 import {AfterViewChecked, AfterViewInit, Component, Inject, inject, InjectionToken, OnInit} from '@angular/core';
 import {fromEvent, interval, Observable, Subject} from 'rxjs';
 import {DOCUMENT} from '@angular/common';
-import {distinctUntilChanged, map, publishReplay, share, shareReplay, startWith, take, tap} from 'rxjs/operators';
+import {delay, distinctUntilChanged, map, publishReplay, share, shareReplay, startWith, take, tap} from 'rxjs/operators';
 
 export const PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
   'Shared Observable based on `document visibility changed`',
@@ -11,8 +11,9 @@ export const PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
 
       return fromEvent(documentRef, 'visibilitychange').pipe(
         startWith(0),
+        delay(100),
         map(() => documentRef.visibilityState !== 'hidden'),
-        shareReplay(1) );
+        share() );
     }
   }
 );
@@ -31,9 +32,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageVisibility$.subscribe((value) => {
-        console.log(`Page1 visibility changed to ${value}`);
+      console.log(`Page1 visibility changed to ${value}`);
       }
     );
+    this.pageVisibility$.subscribe((value) => {
+      debugger
+        console.log(`Page2 visibility changed to ${value}`);
+      }
+    );
+
+
   }
 
 }
